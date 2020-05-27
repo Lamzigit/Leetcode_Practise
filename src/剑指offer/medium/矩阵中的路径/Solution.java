@@ -17,7 +17,7 @@ public class Solution {
         int r = board.length, c = board[0].length, c_idx = 0, len = word.length();
         int[][] path = new int[word.length()][];
         int[] dir_idx = new int[word.length()];
-        int[][] dir = new int[][]{{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+        int[][] dir = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
         path[0] = new int[]{x, y};
         for(int i=1;i<len;path[i++]=new int[]{-1, -1});
@@ -46,7 +46,7 @@ public class Solution {
             }
 
         }
-        return c_idx == len;
+        return c_idx+1 == len;
     }
 
     public static void main(String[] args) {
@@ -54,8 +54,8 @@ public class Solution {
                 {'A','B','C','E'},
                 {'S','F','C','S'},
                 {'A','D','E','E'}};
+//        String word = "AB";
         String word = "ABCCED";
-//        String word = "AG";
         boolean flag = new Solution().exist(board, word);
         System.out.println(flag);
     }
